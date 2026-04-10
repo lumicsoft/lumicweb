@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumic Technologies | Premium Web3 & MLM Architects</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber_black: '#020204',
+                        cyber_gray: '#0a0b10',
+                        neon_blue: '#00f2fe',
+                        cyber_purple: '#4facfe',
+                        gold_premium: '#D4AF37'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Lexend Exa', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lexend+Exa:wght@400;700&display=swap');
+        
+        body {
+            background-color: #020204;
+            color: #e0e6ed;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-nav {
+            background: rgba(2, 2, 4, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .luxury-card {
+            background: rgba(10, 11, 16, 0.6);
+            border: 1px solid rgba(79, 172, 254, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .luxury-card:hover {
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            transform: scale(1.03);
+        }
+        
+        .modal-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(2, 2, 4, 0.9);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu-open {
+            transform: translateX(0) !important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .dropdown-menu {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            min-width: 280px;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <div id="particles-js"></div>
+
+    <div id="premiumModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 modal-blur">
+        <div class="bg-cyber_gray border border-white/10 w-full max-w-2xl rounded-[2rem] p-8 md:p-12 relative shadow-[0_0_50px_rgba(0,242,254,0.2)]">
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 hover:text-neon_blue transition-all">
+                <i class="ph-bold ph-x text-2xl"></i>
+            </button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <nav class="glass-nav fixed w-full z-50 px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <a href="#" class="font-display text-xl font-bold tracking-widest text-white flex items-center gap-2">
+                    <i class="ph-bold ph-cube text-neon_blue"></i>
+                    LUMIC<span class="premium-gradient">TECH</span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-1 uppercase text-xs tracking-widest font-medium">
+                    <a href="#about" class="px-4 py-2 hover:text-neon_blue transition">About</a>
+
+                    <div class="relative dropdown group">
+                        <button class="flex items-center gap-1.5 px-4 py-2 hover:text-neon_blue transition">
+                            MLM Architectures <i class="ph ph-caret-down text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 dropdown-menu bg-cyber_gray border border-gray-800 rounded-xl p-4 shadow-2xl z-50">
+                            <div class="grid grid-cols-1 gap-2">
+                                <a href="javascript:void(0)" onclick="openModal('binary')" class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/40 transition">
+                                    <i class="ph ph-tree-structure text-neon_blue text-lg"></i>
+                                    <div><span class="font-bold text-white text-sm">Binary Plan</span><p class="text-xs text-gray-500 normal-case">Two-leg balancing structure</p></div>
+                                </a>
+                                <a href="javascript:void(0)" onclick="openModal('matrix')" class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/40 transition">
+                                    <i class="ph ph-grid-four text-neon_blue text-lg"></i>
+                                    <div><span class="font-bold text-white text-sm">Matrix Plan</span><p class="text-xs text-gray-500 normal-case">Fixed width spillover</p></div>
+                                </a>
+                                <a href="javascript:void(0)" onclick="openModal('roi')" class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/40 transition">
+                                    <i class="ph ph-chart-line-up text-neon_blue text-lg"></i>
+                                    <div><span class="font-bold text-white text-sm">ROI Systems</span><p class="text-xs text-gray-500 normal-case">Daily returns logic</p></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown group">
+                        <button class="flex items-center gap-1.5 px-4 py-2 hover:text-neon_blue transition">
+                            Decentralized <i class="ph ph-caret-down text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 dropdown-menu bg-cyber_gray border border-gray-800 rounded-xl p-4 shadow-2xl z-50">
+                            <div class="grid grid-cols-1 gap-1">
+                                <a href="javascript:void(0)" onclick="openModal('web3')" class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/40 transition">
+                                    <i class="ph ph-code-block text-cyber_purple text-lg"></i>
+                                    <span class="font-bold text-white text-sm">Web3 Software</span>
+                                </a>
+                                <a href="javascript:void(0)" onclick="openModal('tokens')" class="flex items-center gap-3 p-3 rounded-lg hover:bg-black/40 transition">
+                                    <i class="ph ph-coins text-cyber_purple text-lg"></i>
+                                    <span class="font-bold text-white text-sm">Token Development</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#bot" class="px-4 py-2 hover:text-neon_blue transition">Trading Bot</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden md:block px-6 py-2.5 bg-transparent border border-neon_blue text-neon_blue text-xs uppercase tracking-widest font-bold hover:bg-neon_blue hover:text-black transition duration-300 rounded-sm">
+                        Request Demo
+                    </a>
+                    <button onclick="toggleMenu()" class="lg:hidden text-white text-3xl">
+                        <i id="menuIcon" class="ph ph-list"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="fixed inset-0 z-[60] bg-cyber_black translate-x-full lg:hidden flex flex-col p-10 pt-24 space-y-6">
+            <a href="#about" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white">About Us</a>
+            <div class="h-[1px] bg-white/10 w-full"></div>
+            <a href="javascript:void(0)" onclick="openModal('ecosystem'); toggleMenu()" class="text-xl text-gray-400">MLM Ecosystem</a>
+            <a href="javascript:void(0)" onclick="openModal('web3'); toggleMenu()" class="text-xl text-gray-400">Web3 & Blockchain</a>
+            <a href="#bot" onclick="toggleMenu()" class="text-xl text-gray-400">AI Trading Bot</a>
+            <a href="#contact" onclick="toggleMenu()" class="text-xl text-neon_blue font-bold">Get a Quote</a>
+        </div>
+
+        <section class="min-h-screen flex items-center justify-center pt-20 px-6">
+            <div class="max-w-5xl text-center" data-aos="fade-up" data-aos-duration="1200">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-gray-800 rounded-full bg-black/50 mb-8">
+                    <i class="ph ph-shining-stars text-gold_premium"></i>
+                    <span class="text-xs uppercase tracking-widest text-gray-400">The Ultimate Engineering Standard</span>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white leading-tight mb-8">
+                    Architects of <br> Elite <span class="premium-gradient">Digital Economies</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-400 font-light mb-12">
+                    Lumic Technologies delivers secure, scalable MLM software and decentralized blockchain solutions for visionary enterprises.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <button onclick="openModal('ecosystem')" class="px-10 py-4 bg-white text-black font-extrabold uppercase tracking-widest text-sm rounded-sm hover:bg-neon_blue transition duration-300">Explore MLM Ecosystem</button>
+                    <button onclick="openModal('web3')" class="px-10 py-4 border border-gray-700 font-extrabold uppercase tracking-widest text-sm rounded-sm hover:border-white transition">Launch Web3 Project</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 px-6 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-neon_blue/10 blur-[100px] rounded-full"></div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Security" class="rounded-[2rem] border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+                    <div class="absolute -bottom-6 -right-6 bg-cyber_gray p-6 rounded-2xl border border-neon_blue shadow-xl">
+                        <p class="text-neon_blue font-display text-3xl font-bold">100+</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500">Global Deployments</p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h4 class="text-neon_blue text-xs font-bold uppercase tracking-[0.4em] mb-4">Who We Are</h4>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">Mastering the Art of <span class="premium-gradient">Modern Tech</span></h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Lumic Technologies is more than a software house; we are a hub of innovation for decentralization. Since our inception, we have been committed to creating high-performance digital assets that define the future of network marketing.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-neon_blue/10 flex items-center justify-center shrink-0">
+                                <i class="ph ph-shield-check text-neon_blue text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">Unmatched Security</h5>
+                                <p class="text-xs text-gray-500">Military-grade encryption for every transaction.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-cyber_purple/10 flex items-center justify-center shrink-0">
+                                <i class="ph ph-rocket-launch text-cyber_purple text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">Scalable Logic</h5>
+                                <p class="text-xs text-gray-500">Build for thousands or millions of users seamlessly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-cyber_gray/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-4xl font-bold premium-gradient uppercase tracking-widest">Our Mastery</h2>
+                    <p class="text-gray-500 mt-4">Precision-engineered software for network marketing and decentralized finance.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="luxury-card p-10 rounded-2xl cursor-pointer" onclick="openModal('ecosystem')" data-aos="fade-up">
+                        <i class="ph ph-tree-structure text-5xl text-neon_blue mb-8"></i>
+                        <h3 class="font-display text-xl font-bold text-white uppercase mb-4">MLM Ecosystems</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">From Binary to Hybrid matrices, we build mathematically perfect compensation plans with automated payouts.</p>
+                        <a href="javascript:void(0)" class="text-neon_blue text-xs font-bold uppercase tracking-widest hover:underline">View All Plans →</a>
+                    </div>
+                    <div class="luxury-card p-10 rounded-2xl cursor-pointer" onclick="openModal('web3')" data-aos="fade-up" data-aos-delay="100">
+                        <i class="ph ph-link-break text-5xl text-cyber_purple mb-8"></i>
+                        <h3 class="font-display text-xl font-bold text-white uppercase mb-4">Web3 & Decentralization</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Custom Smart Contracts, Token creation (ERC20/BEP20), and Decentralized App (dApp) architectures.</p>
+                        <a href="javascript:void(0)" class="text-cyber_purple text-xs font-bold uppercase tracking-widest hover:underline">Explore Web3 →</a>
+                    </div>
+                    <div class="luxury-card p-10 rounded-2xl md:col-span-2 lg:col-span-1 border-gold_premium/20 cursor-pointer" onclick="openModal('bot')" data-aos="fade-up" data-aos-delay="200" id="bot">
+                        <i class="ph ph-robot text-5xl text-gold_premium mb-8"></i>
+                        <h3 class="font-display text-xl font-bold text-white uppercase mb-4">AI Trading Bots</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">High-frequency algorithmic trading bots integrated with top exchanges via secure APIs for consistent returns.</p>
+                        <a href="javascript:void(0)" class="text-gold_premium text-xs font-bold uppercase tracking-widest hover:underline">Analyze Performance →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 px-6 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto bg-cyber_gray border border-white/5 rounded-[3rem] p-8 md:p-16 relative z-10 shadow-2xl">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-3xl font-bold text-white uppercase tracking-tighter mb-4">Start Your Project</h2>
+                    <p class="text-gray-500">Connect with our lead architects for a confidential consultation.</p>
+                </div>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault(); alert('Request Sent Successfully!')">
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold ml-2">Full Name</label>
+                        <input type="text" placeholder="Your Name" class="w-full bg-black/40 border border-gray-800 px-6 py-4 rounded-xl text-white focus:outline-none focus:border-neon_blue">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold ml-2">Email Address</label>
+                        <input type="email" placeholder="contact@lumic.tech" class="w-full bg-black/40 border border-gray-800 px-6 py-4 rounded-xl text-white focus:outline-none focus:border-neon_blue">
+                    </div>
+                    <div class="md:col-span-2 space-y-2">
+                        <label class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold ml-2">Project Brief</label>
+                        <textarea rows="4" placeholder="Describe your MLM or Web3 vision..." class="w-full bg-black/40 border border-gray-800 px-6 py-4 rounded-xl text-white focus:outline-none focus:border-neon_blue"></textarea>
+                    </div>
+                    <button type="submit" class="md:col-span-2 py-5 bg-white text-black font-black uppercase tracking-[0.3em] text-xs rounded-xl hover:bg-neon_blue transition-all duration-500">
+                        Initialize Deployment
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="py-10 px-6 text-center border-t border-gray-900 bg-cyber_black">
+            <div class="flex justify-center gap-6 mb-8 text-gray-500 text-xl">
+                <a href="#" class="hover:text-neon_blue transition"><i class="ph ph-telegram-logo"></i></a>
+                <a href="#" class="hover:text-neon_blue transition"><i class="ph ph-whatsapp-logo"></i></a>
+                <a href="#" class="hover:text-neon_blue transition"><i class="ph ph-github-logo"></i></a>
+            </div>
+            <p class="text-gray-700 text-xs uppercase tracking-widest">
+                © 2026 LUMIC TECHNOLOGIES. ALL RIGHTS RESERVED. 
+                <span class="block mt-2 text-gold_premium font-medium uppercase">Designed for the Digital Elite.</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // MOBILE MENU LOGIC
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('mobile-menu-open');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        }
+
+        // MODAL DATA
+        const modalContent = {
+            binary: { title: "Superior Binary Architectures", slogan: "Exponential Growth", body: "Our Binary engines feature real-time leg balancing, automated capping triggers, and high-frequency commission processing.", icon: "ph-tree-structure", color: "text-neon_blue" },
+            web3: { title: "Full Web3 Integration", slogan: "The Future of Commerce", body: "From Solidity-based smart contracts on BSC/Polygon to SUI/Solana integrations, we provide secure, audited, blockchain solutions.", icon: "ph-code-block", color: "text-cyber_purple" },
+            ecosystem: { title: "The MLM Powerhouse", slogan: "One Core. Infinite Possibilities.", body: "Access the world's most robust MLM software suite. Secure wallet integration and automated crypto payouts.", icon: "ph-cube", color: "text-neon_blue" },
+            bot: { title: "AI Trading", slogan: "Intelligence Meets Finance", body: "Our high-frequency bots leverage real-time order book analysis to execute trades securely via API.", icon: "ph-robot", color: "text-gold_premium" }
+        };
+
+        function openModal(key) {
+            const data = modalContent[key] || modalContent['ecosystem'];
+            const content = `
+                <div class="text-center">
+                    <i class="ph ph-fill ${data.icon} text-7xl ${data.color} mb-6"></i>
+                    <h2 class="font-display text-3xl font-bold text-white mb-2 uppercase tracking-tighter">${data.title}</h2>
+                    <p class="text-gold_premium text-xs uppercase tracking-[0.3em] font-bold mb-8">${data.slogan}</p>
+                    <p class="text-gray-400 leading-relaxed text-lg mb-10 font-light">${data.body}</p>
+                    <button onclick="closeModal()" class="px-12 py-4 bg-neon_blue text-black font-black uppercase tracking-widest text-xs hover:bg-white transition-all rounded-full">Secure Solution Now</button>
+                </div>
+            `;
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('premiumModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('premiumModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+        AOS.init({ duration: 1000, once: true });
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: "#4facfe" },
+                opacity: { value: 0.2 },
+                size: { value: 2 },
+                line_linked: { enable: true, distance: 150, color: "#00f2fe", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 1 }
+            },
+            interactivity: { events: { onhover: { enable: true, mode: "grab" } } },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
